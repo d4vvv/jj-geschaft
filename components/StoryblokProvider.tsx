@@ -1,13 +1,9 @@
 'use client'
 
-import { storyblokInit } from '@storyblok/react/rsc'
-import { PropsWithChildren } from 'react'
-
-storyblokInit({
-  components: {},
-  enableFallbackComponent: true,
-})
+import { getStoryblokApi } from '@/lib/storyblok'
+import type { PropsWithChildren } from 'react'
 
 export const StoryblokProvider = ({ children }: PropsWithChildren) => {
-  return <>{children}</>
+  getStoryblokApi()
+  return children
 }
